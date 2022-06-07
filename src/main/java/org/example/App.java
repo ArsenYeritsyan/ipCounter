@@ -25,15 +25,15 @@ public class App {
         new IPCounterService(
             new FileStorage(filePath), BitSetIPStorage.getInstance(), new IPParser());
 
-    log.info("Started at " + OffsetDateTime.now());
+    System.out.println("Started at " + OffsetDateTime.now());
     Instant startTime = Instant.now();
 
-    log.info("Unique IP count: " + ipCounterService.getUniqueIPCount());
+    System.out.println("Unique IP count: " + ipCounterService.getUniqueIPCount());
 
     Instant endTime = Instant.now();
-    log.info("Finished at " + OffsetDateTime.now());
+    System.out.println("Finished at " + OffsetDateTime.now());
 
-    log.info("All duration time in Millis: " + Duration.between(startTime, endTime).toMillis());
+    System.out.println("All duration time in Millis: " + Duration.between(startTime, endTime).toMillis());
   }
 
   private static String getFilePath(String[] args) {
@@ -42,7 +42,7 @@ public class App {
       filePath = args[1];
     } else {
       throw new FileException(
-          "The path to the file was not passed. Write, for example, like this: java -jar target/ip-addr-counter-1.0.0.jar -file ip_addresses");
+          "The path to the file was not passed. Write, for example, like this: java -jar ipcounter-1.0-SNAPSHOT-jar-with-dependencies.jar -file test.txt");
     }
     return filePath;
   }
