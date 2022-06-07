@@ -1,7 +1,5 @@
 package org.example;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.example.exception.FileException;
 import org.example.service.IPCounterService;
 import org.example.storage.BitSetIPStorage;
@@ -14,7 +12,6 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 public class App {
-  private static final Logger log = LogManager.getLogger(App.class);
 
   private static final String FILE_COMMAND = "-file";
 
@@ -33,7 +30,8 @@ public class App {
     Instant endTime = Instant.now();
     System.out.println("Finished at " + OffsetDateTime.now());
 
-    System.out.println("All duration time in Millis: " + Duration.between(startTime, endTime).toMillis());
+    System.out.println(
+        "All duration time in Millis: " + Duration.between(startTime, endTime).toMillis());
   }
 
   private static String getFilePath(String[] args) {
